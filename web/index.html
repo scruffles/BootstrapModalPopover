@@ -3,23 +3,9 @@
 <html>
 <head>
     <!-- todo download resources-->
-    <link href="bootstrap-2.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-    <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
-    <link href="http://twitter.github.com/bootstrap/assets/css/docs.css" rel="stylesheet">
-    <script type="text/javascript" src="jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="bootstrap-2.1.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="bootstrap-modal-popover.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $('.helloWorld').click(function () {
-                alert('hello world');
-            });
-            prettyPrint();
-//            $('#methodTarget').modalPopover({target:'#javaScriptApi'});
-//            $('#javaScriptApi').modalPopover({target:'#methodTarget'});
-        });
-    </script>
+    <link href="lib/bootstrap-2.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/bootstrap-2.1.1/docs.css" rel="stylesheet">
+    <link href="lib/prettify.css" rel="stylesheet">
 </head>
 <body style="padding-top: 40px">
 
@@ -325,6 +311,21 @@ $('#myModal').on('hidden', function () {
         <p>Loaded using JavaScript</p>
     </div>
 </div>
+
+<script type="text/javascript" src="lib/prettify.js"></script>
+<script type="text/javascript" src="lib/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="lib/bootstrap-2.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="bootstrap-modal-popover.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.helloWorld').click(function () {
+            alert('hello world');
+        });
+        prettyPrint();
+//            $('#methodTarget').modalPopover({target:'#javaScriptApi'});
+//            $('#javaScriptApi').modalPopover({target:'#methodTarget'});
+    });
+</script>
 
 </body>
 </html>
