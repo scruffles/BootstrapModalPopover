@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <!-- todo download resources-->
+    <link href="bootstrap-2.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+    <link href="http://twitter.github.com/bootstrap/assets/css/docs.css" rel="stylesheet">
+    <script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap-2.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bootstrap-modal-popover.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.helloWorld').click(function () {
+                alert('hello world');
+            });
+            prettyPrint();
+//            $('#methodTarget').modalPopover({target:'#javaScriptApi'});
+//            $('#javaScriptApi').modalPopover({target:'#methodTarget'});
+        });
+    </script>
+</head>
+<body style="padding-top: 40px">
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#">Modal Popovers</a>
+            <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <section>
+            <div class="page-header">
+                <h1>Modal Popovers
+                    <small>bootstrap-modal-popover.js</small>
+                </h1>
+            </div>
+
+            <a href="#popupDemo" role="button" class="btn btn-primary btn-large" data-toggle="modal-popover" data-placement="right">Demo</a>
+
+            <h3>About Modal Popovers</h3>
+            Twitter Boostrap provides both modals and popovers, but sometimes you need a feature set that falls somewhere between the two.
+            Modals provide a nice way to provide extra details without navigating away from the page completely, but they hide your current context
+            and feel a bit 90's. Popovers are essentially stylish tooltips which provide a little extra information without losing context. However,
+            they were designed to display static text making it difficult to add listeners to any components in the content. The mechanisms used
+            to show and hide popovers are much more appropriate for tooltips than for dialogs.
+
+
+            <h2>Examples</h2>
+
+            <h3>Live Demo</h3>
+
+            <div class="bs-docs-example">
+                <a href="#popupBottom" role="button" class="btn" data-toggle="modal-popover" data-placement="bottom">Bottom</a>
+                <a href="#popupTop" role="button" class="btn" data-toggle="modal-popover" data-placement="top">Top</a>
+                <a href="#popupLeft" role="button" class="btn" data-toggle="modal-popover" data-placement="left">Left</a>
+                <a href="#popupRight" role="button" class="btn" data-toggle="modal-popover" data-placement="right">Right</a>
+            </div>
+
+            <pre class="prettyprint linenums">
+&lt;!-- Button to launch modal popover --&gt;
+&lt;a href="#popupBottom" role="button" class="btn" data-toggle="modal-popover" data-placement="bottom"&gt;Bottom&lt;/a&gt;
+
+&lt;!-- Define content --&gt;
+&lt;div id="popupBottom" class="popover"&gt;
+    &lt;div class="arrow"&gt;&lt;/div&gt;
+    &lt;h3 class="popover-title"&gt;Bottom&lt;/h3&gt;
+    &lt;div class="popover-content"&gt;
+        &lt;p&gt;Sed posuere consectetur est at lobortis. Aenean eu leo quam. 
+            Pellentesque ornare sem lacinia quam venenatis vestibulum.
+            &lt;a href="#" class="btn helloWorld"&gt;Click me&lt;/a&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+
+            <h2>Usage</h2>
+
+            <h3>Via data attributes</h3>
+
+            <p>Activate a modal popover without writing JavaScript. Set <code>data-toggle="modal-popover"</code> on a controller element, like a button, along with a <code>data-target="#foo"</code> or <code>href="#foo"</code> to target a specific
+                modal to toggle.
+            </p>
+            <pre class="prettyprint linenums">&lt;button type="button" data-toggle="modal-popover" data-target="#myModal"&gt;Launch modal&lt;/button&gt;</pre>
+
+            <h3>Via JavaScript</h3>
+
+            <p>Call a modal with id <code>myModal</code> with a single line of JavaScript:</p>
+            <pre class="prettyprint linenums">$('#myModal').modalPopover(options)</pre>
+
+            <h3>Options</h3>
+
+            <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-backdrop=""</code>.</p>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th style="width: 100px;">Name</th>
+                    <th style="width: 50px;">type</th>
+                    <th style="width: 50px;">default</th>
+                    <th>description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>backdrop</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>Inherited from Bootstrap's Modal. The backdrop is the area behind the popover that when clicked, closes the dialog. Unlike modals, the popover's backdrop isn't visible. When false, the popover must be closed pragmatically.
+                    </td>
+                </tr>
+                <tr>
+                    <td>keyboard</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>Closes the modal when escape key is pressed. As with Bootstrap's Modal, this only works if the dialog has focusable components.</td>
+                </tr>
+                <!--
+                                <tr>
+                                    <td>show</td>
+                                    <td>boolean</td>
+                                    <td>true</td>
+                                    <td>Shows the modal when initialized.</td>
+                                </tr>
+                -->
+                <tr>
+                    <td>remote</td>
+                    <td>path</td>
+                    <td>false</td>
+                    <td><p>If a remote url is provided, content will be loaded via jQuery's <code>load</code> method and injected into the <code>.popover-content</code>:</p>
+
+                        <div class="bs-docs-example">
+                            <a href="#popupExternal" class="btn" data-toggle="modal-popover" data-remote="externalContent.html">Show External</a>
+                        </div>
+                        <pre class="prettyprint linenums"><code>&lt;a href="#popupExternal" class="btn" data-toggle="modal-popover" data-remote="externalContent.html"&gt;Show External&lt;/a&gt;</code></pre>
+                        <p>If you're using the data api, you may alternatively use the <code>href</code> tag to specify the remote source. An example of this is shown below:</p>
+
+                        <div class="bs-docs-example">
+                            <a href="externalContent.html" class="btn" data-target="#popupExternal2" data-toggle="modal-popover">Show External</a>
+                        </div>
+                        <pre class="prettyprint linenums"><code>&lt;a href="externalContent.html" class="btn" data-target="#popupExternal" data-toggle="modal-popover"&gt;Show External&lt;/a&gt;</code></pre>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3>Methods</h3>
+
+            <div class="row">
+                <div class="span9">
+                    <h4>.modalPopover(options)</h4>
+                    <p>
+                        Activates your content as a modalPopover. Accepts an optional options <code>object</code>.
+                    </p>
+<pre class="prettyprint linenums">
+$('#myModal').modal({
+    keyboard: false
+})</pre>
+                    <h4>.modalPopover('toggle')</h4>
+                    <p>
+                        Manually toggles a modal.
+                        <a onclick="$('#methodTarget').modalPopover('show');">demo</a>
+                    </p>
+                    <pre class="prettyprint linenums">$('#myModal').modal('toggle')</pre>
+                    <h4>.modal('show')</h4>
+
+                    <p>Manually opens a modal.</p>
+                    <pre class="prettyprint linenums">$('#myModal').modal('show')</pre>
+                    <h4>.modal('hide')</h4>
+
+                    <p>Manually hides a modal.</p>
+                    <pre class="prettyprint linenums">$('#myModal').modal('hide')</pre>
+
+                </div>
+                <div class="span2">
+                    <a class="btn" id="methodTarget">Event Target</a>
+                </div>
+            </div>
+
+
+            <h3>Events</h3>
+
+            <p>Bootstrap's modal class exposes a few events for hooking into modal functionality.</p>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th style="width: 150px;">Event</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>show</td>
+                    <td>This event fires immediately when the <code>show</code> instance method is called.</td>
+                </tr>
+                <tr>
+                    <td>shown</td>
+                    <td>This event is fired when the modal has been made visible to the user (will wait for css transitions to complete).</td>
+                </tr>
+                <tr>
+                    <td>hide</td>
+                    <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
+                </tr>
+                <tr>
+                    <td>hidden</td>
+                    <td>This event is fired when the modal has finished being hidden from the user (will wait for css transitions to complete).</td>
+                </tr>
+                </tbody>
+            </table>
+<pre class="prettyprint linenums">
+$('#myModal').on('hidden', function () {
+// do something…
+})
+</pre>
+
+        </section>
+    </div>
+</div>
+
+
+<!--
+        Demo popovers
+-->
+
+<div id="popupDemo" class="popover" style="width: 300px">
+    <div class="arrow"></div>
+    <h3 class="popover-title">Demo Modal Popover</h3>
+
+    <div class="popover-content">
+        <p>Edit some data related to this context:
+
+        <form>
+            <div class="input-append">
+                <input type="text" class="input-medium" placeholder="my.email@sample.com">
+                <a href="#" class="btn helloWorld">subscribe</a>
+            </div>
+        </form>
+        </p>
+    </div>
+</div>
+
+<div id="popupBottom" class="popover">
+    <div class="arrow"></div>
+    <h3 class="popover-title">Bottom</h3>
+
+    <div class="popover-content">
+        <p>Sed posuere consectetur est at lobortis. Aenean
+            eu leo quam. Pellentesque ornare sem lacinia
+            quam venenatis vestibulum.
+            <a href="#" class="btn helloWorld">Click me</a>
+        </p>
+    </div>
+</div>
+
+<div id="popupTop" class="popover">
+    <div class="arrow"></div>
+    <h3 class="popover-title">Top</h3>
+
+    <div class="popover-content">
+        <p>Sed posuere consectetur est at lobortis. Aenean
+            eu leo quam. Pellentesque ornare sem lacinia
+            quam venenatis vestibulum.
+            <a href="#" class="btn helloWorld">Click me</a>
+        </p>
+    </div>
+</div>
+
+<div id="popupLeft" class="popover">
+    <div class="arrow"></div>
+    <h3 class="popover-title">Left</h3>
+
+    <div class="popover-content">
+        <p>Sed posuere consectetur est at lobortis. Aenean
+            eu leo quam. Pellentesque ornare sem lacinia
+            quam venenatis vestibulum.
+            <a href="#" class="btn helloWorld">Click me</a>
+        </p>
+    </div>
+</div>
+
+<div id="popupRight" class="popover">
+    <div class="arrow"></div>
+    <h3 class="popover-title">Right</h3>
+
+    <div class="popover-content">
+        <p>Sed posuere consectetur est at lobortis. Aenean
+            eu leo quam. Pellentesque ornare sem lacinia
+            quam venenatis vestibulum.
+            <a href="#" class="btn helloWorld">Click me</a>
+        </p>
+    </div>
+</div>
+
+<div id="popupExternal" class="popover">
+    <div class="arrow"></div>
+    <h3 class="popover-title">External Data</h3>
+
+    <div class="popover-content">
+        <p>loading...</p>
+    </div>
+</div>
+
+<div id="popupExternal2" class="popover">
+    <div class="arrow"></div>
+    <h3 class="popover-title">External Data</h3>
+
+    <div class="popover-content">
+        <p>loading...</p>
+    </div>
+</div>
+
+<div id="javaScriptApi" class="popover">
+    <div class="arrow"></div>
+    <h3 class="popover-title">JavaScript Access</h3>
+
+    <div class="popover-content">
+        <p>Loaded using JavaScript</p>
+    </div>
+</div>
+
+</body>
+</html>
