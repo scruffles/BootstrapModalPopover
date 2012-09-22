@@ -6,6 +6,23 @@
     <link href="lib/bootstrap-2.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="lib/bootstrap-2.1.1/docs.css" rel="stylesheet">
     <link href="lib/prettify.css" rel="stylesheet">
+    <style>
+        .underConstruction {
+            opacity: .5;
+
+        }
+
+        .underConstruction:before {
+            content: 'Under Development';
+            -webkit-transform: rotate(-10deg);
+            color: red;
+            font-size: 500%;
+            text-transform: uppercase;
+            position: relative;
+            top: 250px;
+            left: 100px;
+        }
+    </style>
 </head>
 <body style="padding-top: 40px">
 
@@ -140,9 +157,10 @@
 
             <h3>Methods</h3>
 
-            <div class="row">
+            <div class="row underConstruction">
                 <div class="span9">
                     <h4>.modalPopover(options)</h4>
+
                     <p>
                         Activates your content as a modalPopover. Accepts an optional options <code>object</code>.
                     </p>
@@ -151,6 +169,7 @@ $('#myModal').modal({
     keyboard: false
 })</pre>
                     <h4>.modalPopover('toggle')</h4>
+
                     <p>
                         Manually toggles a modal.
                         <a onclick="$('#methodTarget').modalPopover('show');">demo</a>
@@ -174,38 +193,40 @@ $('#myModal').modal({
 
             <h3>Events</h3>
 
-            <p>Bootstrap's modal class exposes a few events for hooking into modal functionality.</p>
-            <table class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                    <th style="width: 150px;">Event</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>show</td>
-                    <td>This event fires immediately when the <code>show</code> instance method is called.</td>
-                </tr>
-                <tr>
-                    <td>shown</td>
-                    <td>This event is fired when the modal has been made visible to the user (will wait for css transitions to complete).</td>
-                </tr>
-                <tr>
-                    <td>hide</td>
-                    <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
-                </tr>
-                <tr>
-                    <td>hidden</td>
-                    <td>This event is fired when the modal has finished being hidden from the user (will wait for css transitions to complete).</td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="row underConstruction">
+                <p>Bootstrap's modal class exposes a few events for hooking into modal functionality.</p>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th style="width: 150px;">Event</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>show</td>
+                        <td>This event fires immediately when the <code>show</code> instance method is called.</td>
+                    </tr>
+                    <tr>
+                        <td>shown</td>
+                        <td>This event is fired when the modal has been made visible to the user (will wait for css transitions to complete).</td>
+                    </tr>
+                    <tr>
+                        <td>hide</td>
+                        <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
+                    </tr>
+                    <tr>
+                        <td>hidden</td>
+                        <td>This event is fired when the modal has finished being hidden from the user (will wait for css transitions to complete).</td>
+                    </tr>
+                    </tbody>
+                </table>
 <pre class="prettyprint linenums">
 $('#myModal').on('hidden', function () {
 // do something…
 })
 </pre>
+            </div>
 
         </section>
     </div>
