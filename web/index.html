@@ -96,12 +96,10 @@
             <pre class="prettyprint linenums">&lt;button type="button" data-toggle="modal-popover" data-target="#myModal"&gt;Launch modal&lt;/button&gt;</pre>
 
             <h3>Via JavaScript</h3>
-
             <p>Call a modal with id <code>myModal</code> with a single line of JavaScript:</p>
             <pre class="prettyprint linenums">$('#myModal').modalPopover(options)</pre>
 
             <h3>Options</h3>
-
             <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-backdrop=""</code>.</p>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -156,8 +154,7 @@
             </table>
 
             <h3>Methods</h3>
-
-            <div class="row underConstruction">
+            <div class="underConstruction row">
                 <div class="span9">
                     <h4>.modalPopover(options)</h4>
 
@@ -185,15 +182,13 @@ $('#myModal').modal({
                     <pre class="prettyprint linenums">$('#myModal').modal('hide')</pre>
 
                 </div>
-                <div class="span2">
+                <div class="span3">
                     <a class="btn" id="methodTarget">Event Target</a>
                 </div>
             </div>
 
-
             <h3>Events</h3>
-
-            <div class="row underConstruction">
+            <div class="underConstruction row span12">
                 <p>Bootstrap's modal class exposes a few events for hooking into modal functionality.</p>
                 <table class="table table-bordered table-striped">
                     <thead>
@@ -228,10 +223,9 @@ $('#myModal').on('hidden', function () {
 </pre>
             </div>
 
-            <h3>Related Projects</h3>
-
+            <h2>Related Projects</h2>
             Before starting this project, I used <a href="http://www.leecarmichael.com/bootstrapx-clickover/examples.html">boostrapx-clickvoer</a>.
-            It achieves the same results, but with different code. It subclasses popover rather than modal, so the contents of the popover
+            It achieves the same results, but with a different api. It subclasses popover rather than modal, so the contents of the popover
             are based on text rather than an existing dom element.  Because of this, the only way to add listeners or augment the html using
             javascript is to listen to each popup event, re-adding the listeners there.  Also, the options are inherited from popover, and
             make more sense for tooltips than editable forms.
@@ -239,104 +233,105 @@ $('#myModal').on('hidden', function () {
     </div>
 </div>
 
+<div>
+    <!--
+            Demo popovers
+    -->
 
-<!--
-        Demo popovers
--->
+    <div id="popupDemo" class="popover" style="width: 300px">
+        <div class="arrow"></div>
+        <h3 class="popover-title">Demo Modal Popover</h3>
 
-<div id="popupDemo" class="popover" style="width: 300px">
-    <div class="arrow"></div>
-    <h3 class="popover-title">Demo Modal Popover</h3>
+        <div class="popover-content">
+            <p>Edit some data related to this context:
 
-    <div class="popover-content">
-        <p>Edit some data related to this context:
-
-        <form>
-            <div class="input-append">
-                <input type="text" class="input-medium" placeholder="my.email@sample.com">
-                <a href="#" class="btn helloWorld">subscribe</a>
-            </div>
-        </form>
-        </p>
+            <form>
+                <div class="input-append">
+                    <input type="text" class="input-medium" placeholder="my.email@sample.com">
+                    <a href="#" class="btn helloWorld">subscribe</a>
+                </div>
+            </form>
+            </p>
+        </div>
     </div>
-</div>
 
-<div id="popupBottom" class="popover">
-    <div class="arrow"></div>
-    <h3 class="popover-title">Bottom</h3>
+    <div id="popupBottom" class="popover">
+        <div class="arrow"></div>
+        <h3 class="popover-title">Bottom</h3>
 
-    <div class="popover-content">
-        <p>Sed posuere consectetur est at lobortis. Aenean
-            eu leo quam. Pellentesque ornare sem lacinia
-            quam venenatis vestibulum.
-            <a href="#" class="btn helloWorld">Click me</a>
-        </p>
+        <div class="popover-content">
+            <p>Sed posuere consectetur est at lobortis. Aenean
+                eu leo quam. Pellentesque ornare sem lacinia
+                quam venenatis vestibulum.
+                <a href="#" class="btn helloWorld">Click me</a>
+            </p>
+        </div>
     </div>
-</div>
 
-<div id="popupTop" class="popover">
-    <div class="arrow"></div>
-    <h3 class="popover-title">Top</h3>
+    <div id="popupTop" class="popover">
+        <div class="arrow"></div>
+        <h3 class="popover-title">Top</h3>
 
-    <div class="popover-content">
-        <p>Sed posuere consectetur est at lobortis. Aenean
-            eu leo quam. Pellentesque ornare sem lacinia
-            quam venenatis vestibulum.
-            <a href="#" class="btn helloWorld">Click me</a>
-        </p>
+        <div class="popover-content">
+            <p>Sed posuere consectetur est at lobortis. Aenean
+                eu leo quam. Pellentesque ornare sem lacinia
+                quam venenatis vestibulum.
+                <a href="#" class="btn helloWorld">Click me</a>
+            </p>
+        </div>
     </div>
-</div>
 
-<div id="popupLeft" class="popover">
-    <div class="arrow"></div>
-    <h3 class="popover-title">Left</h3>
+    <div id="popupLeft" class="popover">
+        <div class="arrow"></div>
+        <h3 class="popover-title">Left</h3>
 
-    <div class="popover-content">
-        <p>Sed posuere consectetur est at lobortis. Aenean
-            eu leo quam. Pellentesque ornare sem lacinia
-            quam venenatis vestibulum.
-            <a href="#" class="btn helloWorld">Click me</a>
-        </p>
+        <div class="popover-content">
+            <p>Sed posuere consectetur est at lobortis. Aenean
+                eu leo quam. Pellentesque ornare sem lacinia
+                quam venenatis vestibulum.
+                <a href="#" class="btn helloWorld">Click me</a>
+            </p>
+        </div>
     </div>
-</div>
 
-<div id="popupRight" class="popover">
-    <div class="arrow"></div>
-    <h3 class="popover-title">Right</h3>
+    <div id="popupRight" class="popover">
+        <div class="arrow"></div>
+        <h3 class="popover-title">Right</h3>
 
-    <div class="popover-content">
-        <p>Sed posuere consectetur est at lobortis. Aenean
-            eu leo quam. Pellentesque ornare sem lacinia
-            quam venenatis vestibulum.
-            <a href="#" class="btn helloWorld">Click me</a>
-        </p>
+        <div class="popover-content">
+            <p>Sed posuere consectetur est at lobortis. Aenean
+                eu leo quam. Pellentesque ornare sem lacinia
+                quam venenatis vestibulum.
+                <a href="#" class="btn helloWorld">Click me</a>
+            </p>
+        </div>
     </div>
-</div>
 
-<div id="popupExternal" class="popover">
-    <div class="arrow"></div>
-    <h3 class="popover-title">External Data</h3>
+    <div id="popupExternal" class="popover">
+        <div class="arrow"></div>
+        <h3 class="popover-title">External Data</h3>
 
-    <div class="popover-content">
-        <p>loading...</p>
+        <div class="popover-content">
+            <p>loading...</p>
+        </div>
     </div>
-</div>
 
-<div id="popupExternal2" class="popover">
-    <div class="arrow"></div>
-    <h3 class="popover-title">External Data</h3>
+    <div id="popupExternal2" class="popover">
+        <div class="arrow"></div>
+        <h3 class="popover-title">External Data</h3>
 
-    <div class="popover-content">
-        <p>loading...</p>
+        <div class="popover-content">
+            <p>loading...</p>
+        </div>
     </div>
-</div>
 
-<div id="javaScriptApi" class="popover">
-    <div class="arrow"></div>
-    <h3 class="popover-title">JavaScript Access</h3>
+    <div id="javaScriptApi" class="popover">
+        <div class="arrow"></div>
+        <h3 class="popover-title">JavaScript Access</h3>
 
-    <div class="popover-content">
-        <p>Loaded using JavaScript</p>
+        <div class="popover-content">
+            <p>Loaded using JavaScript</p>
+        </div>
     </div>
 </div>
 
