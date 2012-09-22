@@ -31,9 +31,8 @@
         <div class="container">
             <a class="brand" href="#">Modal Popovers</a>
             <ul class="nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="http://scruffles.github.com/BootstrapModalPopover/">Home</a></li>
                 <li><a href="https://github.com/scruffles/BootstrapModalPopover">Download from GitHub</a></li>
-                <li><a href="#">Link</a></li>
             </ul>
         </div>
     </div>
@@ -96,10 +95,12 @@
             <pre class="prettyprint linenums">&lt;button type="button" data-toggle="modal-popover" data-target="#myModal"&gt;Launch modal&lt;/button&gt;</pre>
 
             <h3>Via JavaScript</h3>
+
             <p>Call a modal with id <code>myModal</code> with a single line of JavaScript:</p>
             <pre class="prettyprint linenums">$('#myModal').modalPopover(options)</pre>
 
             <h3>Options</h3>
+
             <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-backdrop=""</code>.</p>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -154,6 +155,7 @@
             </table>
 
             <h3>Methods</h3>
+
             <div class="underConstruction row">
                 <div class="span9">
                     <h4>.modalPopover(options)</h4>
@@ -188,6 +190,7 @@ $('#myModal').modal({
             </div>
 
             <h3>Events</h3>
+
             <div class="underConstruction row span12">
                 <p>Bootstrap's modal class exposes a few events for hooking into modal functionality.</p>
                 <table class="table table-bordered table-striped">
@@ -226,8 +229,8 @@ $('#myModal').on('hidden', function () {
             <h2>Related Projects</h2>
             Before starting this project, I used <a href="http://www.leecarmichael.com/bootstrapx-clickover/examples.html">boostrapx-clickvoer</a>.
             It achieves the same results, but with a different api. It subclasses popover rather than modal, so the contents of the popover
-            are based on text rather than an existing dom element.  Because of this, the only way to add listeners or augment the html using
-            javascript is to listen to each popup event, re-adding the listeners there.  Also, the options are inherited from popover, and
+            are based on text rather than an existing dom element. Because of this, the only way to add listeners or augment the html using
+            javascript is to listen to each popup event, re-adding the listeners there. Also, the options are inherited from popover, and
             make more sense for tooltips than editable forms.
         </section>
     </div>
