@@ -24,7 +24,7 @@
         }
     </style>
 </head>
-<body style="padding-top: 40px">
+<body style="padding-top: 40px; padding-bottom: 100px">
 
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
@@ -228,6 +228,13 @@ $('#myModal').on('hidden', function () {
 </pre>
             </div>
 
+            <h3>Related Projects</h3>
+
+            Before starting this project, I used <a href="http://www.leecarmichael.com/bootstrapx-clickover/examples.html">boostrapx-clickvoer</a>.
+            It achieves the same results, but with different code. It subclasses popover rather than modal, so the contents of the popover
+            are based on text rather than an existing dom element.  Because of this, the only way to add listeners or augment the html using
+            javascript is to listen to each popup event, re-adding the listeners there.  Also, the options are inherited from popover, and
+            make more sense for tooltips than editable forms.
         </section>
     </div>
 </div>
