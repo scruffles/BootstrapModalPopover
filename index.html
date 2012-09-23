@@ -7,6 +7,13 @@
     <link href="lib/bootstrap-2.1.1/docs.css" rel="stylesheet">
     <link href="lib/prettify.css" rel="stylesheet">
     <style>
+            /* only on desktop and tablets */
+        @media (max-width: 979px) {
+            .underConstruction {
+                display: none;
+            }
+        }
+
         .underConstruction {
             opacity: .5;
 
@@ -154,9 +161,8 @@
                 </tbody>
             </table>
 
-            <h3>Methods</h3>
-
             <div class="underConstruction row">
+                <h3>Methods</h3>
                 <div class="span9">
                     <h4>.modalPopover(options)</h4>
 
@@ -189,9 +195,8 @@ $('#myModal').modal({
                 </div>
             </div>
 
-            <h3>Events</h3>
-
             <div class="underConstruction row span12">
+                <h3>Events</h3>
                 <p>Bootstrap's modal class exposes a few events for hooking into modal functionality.</p>
                 <table class="table table-bordered table-striped">
                     <thead>
