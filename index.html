@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -120,6 +120,28 @@
                 </thead>
                 <tbody>
                 <tr>
+                    <td>target</td>
+                    <td>selector</td>
+                    <td>none (required)</td>
+                    <td>
+                        <p>Specifies the content for the modal popup.</p>
+
+                        <p>Bootstrap's Modal doesn't need to reference a second element, because it has no context. It's <i>this</i> is the dialog.
+                            Bootstrap's Popover doesn't need to reference a second element because the content is just text. It's <i>this</i> is the context for the popup (the element the tooltip applies to).
+                            Motal Popover needs both a context (specified by the 'target' option) <i>and</i> content (<i>this</i>).
+                        </p>
+
+                        <p>
+                            The target can be specified in several ways: </p>
+
+                        <ul>
+                            <li>in the options object when configuring via javascript</li>
+                            <li>using data-target on the context object (see the 'remote' option for an example)</li>
+                            <li>using the href attribute on the context object (see the 'remote' option for an example)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
                     <td>backdrop</td>
                     <td>boolean</td>
                     <td>true</td>
@@ -191,7 +213,7 @@ $('#myModal').modal({
 
                 </div>
                 <div class="span3">
-                    <a class="btn" id="methodTarget">Event Target</a>
+                    <div style="padding: 100px; background: gray;" id="methodTarget">Event Target</div>
                 </div>
             </div>
 
@@ -353,7 +375,7 @@ $('#myModal').on('hidden', function () {
             alert('hello world');
         });
         prettyPrint();
-//            $('#methodTarget').modalPopover({target:'#javaScriptApi'});
+//        $('#methodTarget').modalPopover({target:'#javaScriptApi'});
 //            $('#javaScriptApi').modalPopover({target:'#methodTarget'});
     });
 </script>
