@@ -113,7 +113,7 @@
             var $this = $(this);
             var data = $this.data('modal-popover');
             var options = $.extend({}, $.fn.modalPopover.defaults, $this.data(), typeof option == 'object' && option);
-//            options['$parent'] = $this;
+            options['$parent'] = option.$parent || $this;
 
             if (!data) $this.data('modal-popover', (data = new ModalPopover(this, options)))
 
