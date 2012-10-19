@@ -1,35 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-<html>
 <head>
+    <title>Modal Popover</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="lib/bootstrap-2.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="lib/bootstrap-2.1.1/docs.css" rel="stylesheet">
     <link href="lib/prettify.css" rel="stylesheet">
-    <style>
-            /* only on desktop and tablets */
-        @media (max-width: 979px) {
-            .underConstruction {
-                display: none;
-            }
-        }
-
-        .underConstruction {
-            opacity: .5;
-
-        }
-
-        .underConstruction:before {
-            content: 'Under Development';
-            -webkit-transform: rotate(-10deg);
-            color: red;
-            font-size: 500%;
-            text-transform: uppercase;
-            position: relative;
-            top: 250px;
-            left: 100px;
-        }
-    </style>
 </head>
 <body style="padding-top: 40px; padding-bottom: 100px">
 
@@ -106,6 +82,10 @@
             <p>Call a modal with id <code>myModal</code> with a single line of JavaScript:</p>
             <pre class="prettyprint linenums">$('#myModal').modalPopover(options)</pre>
 
+            <h3>Demo</h3>
+
+            <p>A <a href="http://jsfiddle.net/scruffles/6JSYj/">full demo</a> of the method and events below is available on JSLint.</p>
+
             <h3>Options</h3>
 
             <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-backdrop=""</code>.</p>
@@ -142,6 +122,12 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>placement</td>
+                    <td>string|function</td>
+                    <td>'right'</td>
+                    <td>how to position the popover - top | bottom | left | right</td>
+                </tr>
+                <tr>
                     <td>backdrop</td>
                     <td>boolean</td>
                     <td>true</td>
@@ -154,6 +140,7 @@
                     <td>true</td>
                     <td>Closes the modal when escape key is pressed. As with Bootstrap's Modal, this only works if the dialog has focusable components.</td>
                 </tr>
+                <!-- todo -->
                 <!--
                                 <tr>
                                     <td>show</td>
@@ -180,77 +167,91 @@
                         <pre class="prettyprint linenums"><code>&lt;a href="externalContent.html" class="btn" data-target="#popupExternal" data-toggle="modal-popover"&gt;Show External&lt;/a&gt;</code></pre>
                     </td>
                 </tr>
+                <tr>
+                    <td>placement</td>
+                    <td>string</td>
+                    <td>right</td>
+                    <td>
+                        Specifies where the popup appears relative to the target. Valid values are left, right, top & bottom. see demos above
+                    </td>
+                </tr>
                 </tbody>
             </table>
 
-            <div class="underConstruction row">
-                <h3>Methods</h3>
-                <div class="span9">
+            <div class="row">
+                <div class="span12">
+                    <h3>Methods</h3>
+
                     <h4>.modalPopover(options)</h4>
 
                     <p>
-                        Activates your content as a modalPopover. Accepts an optional options <code>object</code>.
+                        Initializes your content as a modalPopover. Accepts an optional options <code>object</code>.
                     </p>
 <pre class="prettyprint linenums">
-$('#myModal').modal({
-    keyboard: false
-})</pre>
+$('#dialog').modalPopover({
+    target: '#target'
+});</pre>
+                    <p>
+                        Alternatively, the <code>data-toggle="modal-popover"</code> tag can be used on either the dialog or its target.
+                    </p>
+
                     <h4>.modalPopover('toggle')</h4>
 
                     <p>
                         Manually toggles a modal.
-                        <a onclick="$('#methodTarget').modalPopover('show');">demo</a>
                     </p>
-                    <pre class="prettyprint linenums">$('#myModal').modal('toggle')</pre>
-                    <h4>.modal('show')</h4>
+                    <pre class="prettyprint linenums">$('#dialog').modalPopover('toggle')</pre>
+
+                    <h4>.modalPopover('show')</h4>
 
                     <p>Manually opens a modal.</p>
-                    <pre class="prettyprint linenums">$('#myModal').modal('show')</pre>
-                    <h4>.modal('hide')</h4>
+                    <pre class="prettyprint linenums">$('#dialog').modalPopover('show')</pre>
+
+                    <h4>.modalPopover('hide')</h4>
 
                     <p>Manually hides a modal.</p>
-                    <pre class="prettyprint linenums">$('#myModal').modal('hide')</pre>
+                    <pre class="prettyprint linenums">$('#dialog').modalPopover('hide')</pre>
 
-                </div>
-                <div class="span3">
-                    <div style="padding: 100px; background: gray;" id="methodTarget">Event Target</div>
                 </div>
             </div>
 
-            <div class="underConstruction row span12">
-                <h3>Events</h3>
-                <p>Bootstrap's modal class exposes a few events for hooking into modal functionality.</p>
-                <table class="table table-bordered table-striped">
-                    <thead>
-                    <tr>
-                        <th style="width: 150px;">Event</th>
-                        <th>Description</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>show</td>
-                        <td>This event fires immediately when the <code>show</code> instance method is called.</td>
-                    </tr>
-                    <tr>
-                        <td>shown</td>
-                        <td>This event is fired when the modal has been made visible to the user (will wait for css transitions to complete).</td>
-                    </tr>
-                    <tr>
-                        <td>hide</td>
-                        <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
-                    </tr>
-                    <tr>
-                        <td>hidden</td>
-                        <td>This event is fired when the modal has finished being hidden from the user (will wait for css transitions to complete).</td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="span12">
+                    <h3>Events</h3>
+
+                    <p>Several events are exposed to Modal Popover:</p>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th style="width: 150px;">Event</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>show</td>
+                            <td>This event fires immediately when the <code>show</code> instance method is called.</td>
+                        </tr>
+                        <tr>
+                            <td>shown</td>
+                            <td>This event is fired when the modal has been made visible to the user (will wait for css transitions to complete).</td>
+                        </tr>
+                        <tr>
+                            <td>hide</td>
+                            <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
+                        </tr>
+                        <tr>
+                            <td>hidden</td>
+                            <td>This event is fired when the modal has finished being hidden from the user (will wait for css transitions to complete).</td>
+                        </tr>
+                        </tbody>
+                    </table>
 <pre class="prettyprint linenums">
 $('#myModal').on('hidden', function () {
-// do something…
+    // do something...
 })
 </pre>
+                </div>
             </div>
 
             <h2>Related Projects</h2>
@@ -375,8 +376,8 @@ $('#myModal').on('hidden', function () {
             alert('hello world');
         });
         prettyPrint();
-//        $('#methodTarget').modalPopover({target:'#javaScriptApi'});
-//            $('#javaScriptApi').modalPopover({target:'#methodTarget'});
+
+        $('#javaScriptApi').modalPopover({target:'#methodTarget', placement:'left'});
     });
 </script>
 
