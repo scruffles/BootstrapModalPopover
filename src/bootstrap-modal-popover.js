@@ -29,7 +29,6 @@
         },
 
         show:function () {
-
             var $dialog = this.$element;
             $dialog.css({ top:0, left:0, display:'block', 'z-index':1050 });
 
@@ -110,15 +109,17 @@
 
     $.fn.modalPopover = function (option) {
         return this.each(function () {
+            console.log(['this', this])
             var $this = $(this);
             var data = $this.data('modal-popover');
             var options = $.extend({}, $.fn.modalPopover.defaults, $this.data(), typeof option == 'object' && option);
-            options['$parent'] = option.$parent || $this;
+            // todo need to replace 'parent' with 'target'
+            options['$parent'] = (data && data.$parent) || option.$parent || $(options.target);
+            console.log(options)
 
             if (!data) $this.data('modal-popover', (data = new ModalPopover(this, options)))
 
             if (typeof option == 'string') data[option]()
-            else if (options.show) data.show()
         })
     }
 
@@ -142,6 +143,7 @@
 
             $dialog
                 .modalPopover(option)
+                .modalPopover('show')
                 .one('hide', function () {
                     $this.focus()
                 })
@@ -149,3 +151,4 @@
     })
 
 }(window.jQuery);
+//
