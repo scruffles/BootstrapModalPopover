@@ -113,7 +113,7 @@
             var data = $this.data('modal-popover');
             var options = $.extend({}, $.fn.modalPopover.defaults, $this.data(), typeof option == 'object' && option);
             // todo need to replace 'parent' with 'target'
-            options['$parent'] = (data && data.$parent) || option.$parent || $(options.target);
+            options['$parent'] = (data && data.$parent) || options.$parent || $(options.target);
 
             if (!data) $this.data('modal-popover', (data = new ModalPopover(this, options)))
 
