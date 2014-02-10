@@ -8,7 +8,7 @@
         this.$element = $(element)
             .delegate('[data-dismiss="modal-popup"]', 'click.dismiss.modal-popup', $.proxy(this.hide, this));
         this.options.remote && this.$element.find('.popover-content').load(this.options.remote);
-        this.$parent = options.$parent; // todo make sure parent is specified
+        this.$target = options.$target ; // todo make sure parent is specified
     }
 
 
@@ -22,7 +22,7 @@
 
 
         getPosition:function () {
-            var $element = this.$parent;
+            var $element = this.$target;
             return $.extend({}, ($element.offset()), {
                 width:$element[0].offsetWidth, height:$element[0].offsetHeight
             });
@@ -113,10 +113,15 @@
             var data = $this.data('modal-popover');
             var options = $.extend({}, $.fn.modalPopover.defaults, $this.data(), typeof option == 'object' && option);
             // todo need to replace 'parent' with 'target'
-            options['$parent'] = (data && data.$parent) || option.$parent || $(options.target);
+            options['$parent'] = $(option.target)||$(options.target)||(data && data.$parent) || option.$parent;         
 
-            if (!data) $this.data('modal-popover', (data = new ModalPopover(this, options)))
+            options['$target']=options['$parent'];
+            
+            if (typeof option == 'object' && option) 
+                $this.data('modal-popover', (data = new ModalPopover(this, options)))
 
+            
+            
             if (typeof option == 'string') data[option]()
         })
     }
@@ -135,7 +140,7 @@
             var href = $this.attr('href');
             var $dialog = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))); //strip for ie7
             var option = $dialog.data('modal-popover') ? 'toggle' : $.extend({ remote:!/#/.test(href) && href }, $dialog.data(), $this.data());
-            option['$parent'] = $this;
+            option['$target'] = $this;
 
             e.preventDefault();
 
