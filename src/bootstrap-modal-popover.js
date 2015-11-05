@@ -5,8 +5,10 @@
 
     var ModalPopover = function (element, options) {
         this.options = options;
+        this.$body = $(document.body);
         this.$element = $(element)
             .delegate('[data-dismiss="modal-popup"]', 'click.dismiss.modal-popup', $.proxy(this.hide, this));
+        this.$dialog = this.$element.find('.modal-dialog');
         this.options.remote && this.$element.find('.popover-content').load(this.options.remote);
         this.$parent = options.$parent; // todo make sure parent is specified
     }
@@ -18,19 +20,18 @@
 
     ModalPopover.prototype = $.extend({}, $.fn.modal.Constructor.prototype, {
 
-        constructor:ModalPopover,
-
+        constructor: ModalPopover,
 
         getPosition:function () {
             var $element = this.$parent;
-            return $.extend({}, ($element.offset()), {
+            return $.extend({}, ($element.position()), {
                 width:$element[0].offsetWidth, height:$element[0].offsetHeight
             });
         },
 
-        show:function () {
+        show: function () {
             var $dialog = this.$element;
-            $dialog.css({ top:0, left:0, display:'block', 'z-index':1050 });
+            $dialog.css({ top: 0, left: 0, display: 'block', 'z-index': 1050 });
 
             var placement = typeof this.options.placement == 'function' ?
                 this.options.placement.call(this, $tip[0], this.$element[0]) :
@@ -44,16 +45,16 @@
             var tp;
             switch (placement) {
                 case 'bottom':
-                    tp = {top:pos.top + pos.height, left:pos.left + pos.width / 2 - actualWidth / 2}
+                    tp = { top: pos.top + pos.height, left: pos.left + pos.width / 2 - actualWidth / 2 }
                     break;
                 case 'top':
-                    tp = {top:pos.top - actualHeight, left:pos.left + pos.width / 2 - actualWidth / 2}
+                    tp = { top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2 }
                     break;
                 case 'left':
-                    tp = {top:pos.top + pos.height / 2 - actualHeight / 2, left:pos.left - actualWidth}
+                    tp = { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth }
                     break;
                 case 'right':
-                    tp = {top:pos.top + pos.height / 2 - actualHeight / 2, left:pos.left + pos.width}
+                    tp = { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width }
                     break;
             }
 
@@ -62,12 +63,11 @@
                 .addClass(placement)
                 .addClass('in');
 
-
             $.fn.modal.Constructor.prototype.show.call(this, arguments); // super
         },
 
-        /** todo entire function was copied just to set the background to 'none'.  need a better way */
-        backdrop:function (callback) {
+        /** todo entire function was copied just to set the background to 'none'. need a better way */
+        backdrop: function (callback) {
             var that = this
                 , animate = this.$element.hasClass('fade') ? 'fade' : ''
 
@@ -124,8 +124,9 @@
     $.fn.modalPopover.Constructor = ModalPopover
 
     $.fn.modalPopover.defaults = $.extend({}, $.fn.modal.defaults, {
-        placement:'right',
-        keyboard: true
+        placement: 'right',
+        keyboard: true,
+        backdrop: true
     });
 
 
@@ -134,7 +135,7 @@
             var $this = $(this);
             var href = $this.attr('href');
             var $dialog = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))); //strip for ie7
-            var option = $dialog.data('modal-popover') ? 'toggle' : $.extend({ remote:!/#/.test(href) && href }, $dialog.data(), $this.data());
+            var option = $dialog.data('modal-popover') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $dialog.data(), $this.data());
             option['$parent'] = $this;
 
             e.preventDefault();
@@ -149,4 +150,3 @@
     })
 
 }(window.jQuery);
-//
