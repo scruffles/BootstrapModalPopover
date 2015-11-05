@@ -83,18 +83,20 @@
 
                 if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
 
-                this.$backdrop.addClass('in')
+                this.$backdrop.addClass('in');
 
                 doAnimate ?
                     this.$backdrop.one($.support.transition.end, callback) :
                     callback()
 
             } else if (!this.isShown && this.$backdrop) {
-                this.$backdrop.removeClass('in')
+                this.$backdrop.removeClass('in');
 
                 $.support.transition && this.$element.hasClass('fade') ?
                     this.$backdrop.one($.support.transition.end, $.proxy(this.removeBackdrop, this)) :
-                    this.removeBackdrop()
+                    this.removeBackdrop();
+
+                this.$body.removeClass('modal-open');
 
             } else if (callback) {
                 callback()
