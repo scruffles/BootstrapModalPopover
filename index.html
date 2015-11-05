@@ -47,7 +47,7 @@
 
             <h2>Examples</h2>
 
-            <h3>Live Demo</h3>
+            <h3>Positioning</h3>
 
             <div class="bs-docs-example">
                 <a href="#popupBottom" role="button" class="btn btn-default" data-toggle="modal-popover" data-placement="bottom">Bottom</a>
@@ -71,6 +71,13 @@
         &lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;</pre>
+
+            <h3>Multiple Triggers</h3>
+
+            <p>The same popup can be triggered by multiple buttons:</p>
+
+            <a href="#multipleTarget" role="button" class="btn btn-default" data-toggle="modal-popover" data-placement="bottom">Button 1</a>
+            <a href="#multipleTarget" role="button" class="btn btn-default" data-toggle="modal-popover" data-placement="bottom">Button 2</a>
 
 
             <h2>Usage</h2>
@@ -333,6 +340,19 @@ $('#myModal').on('hidden', function () {
     <div id="popupRight" class="popover">
         <div class="arrow"></div>
         <h3 class="popover-title">Right</h3>
+
+        <div class="popover-content">
+            <p>Sed posuere consectetur est at lobortis. Aenean
+                eu leo quam. Pellentesque ornare sem lacinia
+                quam venenatis vestibulum.
+                <a href="#" class="btn btn-default helloWorld">Click me</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="multipleTarget" class="popover">
+        <div class="arrow"></div>
+        <h3 class="popover-title">Bottom</h3>
 
         <div class="popover-content">
             <p>Sed posuere consectetur est at lobortis. Aenean
