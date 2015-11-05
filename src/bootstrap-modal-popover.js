@@ -24,7 +24,7 @@
 
         getPosition:function () {
             var $element = this.$parent;
-            return $.extend({}, ($element.position()), {
+            return $.extend({}, ($element.offset()), {
                 width:$element[0].offsetWidth, height:$element[0].offsetHeight
             });
         },
