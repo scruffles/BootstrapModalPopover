@@ -31,7 +31,7 @@ body > .navbar {
 }
 
 /* Change the docs' brand */
-body > .navbar .brand {
+body > .navbar .navbar-brand {
   padding-right: 0;
   padding-left: 0;
   margin-left: 20px;

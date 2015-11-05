@@ -3,21 +3,19 @@
 <head>
     <title>Modal Popover</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="lib/bootstrap-2.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="lib/bootstrap-2.1.1/docs.css" rel="stylesheet">
+    <link href="lib/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/bootstrap-3.3.5/docs.css" rel="stylesheet">
     <link href="lib/prettify.css" rel="stylesheet">
 </head>
 <body style="padding-top: 40px; padding-bottom: 100px">
 
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="brand" href="#">Modal Popovers</a>
-            <ul class="nav">
-                <li class="active"><a href="http://scruffles.github.com/BootstrapModalPopover/">Home</a></li>
-                <li><a href="https://github.com/scruffles/BootstrapModalPopover">Download from GitHub</a></li>
-            </ul>
-        </div>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Modal Popovers</a>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="http://scruffles.github.com/BootstrapModalPopover/">Home</a></li>
+            <li><a href="https://github.com/scruffles/BootstrapModalPopover">Download from GitHub</a></li>
+        </ul>
     </div>
 </div>
 
@@ -40,20 +38,27 @@
             to show and hide popovers are much more appropriate for tooltips than for dialogs.
 
 
+            <h3>Versions</h3>
+            <ul>
+                <li>Version 1.0 was tested against bootstrap 2.1.1</li>
+                <li>Version 2.x is designed to work with bootstrap 3.3.5</li>
+            </ul>
+            Please feel free to submit pull requests if you find an issue.
+
             <h2>Examples</h2>
 
             <h3>Live Demo</h3>
 
             <div class="bs-docs-example">
-                <a href="#popupBottom" role="button" class="btn" data-toggle="modal-popover" data-placement="bottom">Bottom</a>
-                <a href="#popupTop" role="button" class="btn" data-toggle="modal-popover" data-placement="top">Top</a>
-                <a href="#popupLeft" role="button" class="btn" data-toggle="modal-popover" data-placement="left">Left</a>
-                <a href="#popupRight" role="button" class="btn" data-toggle="modal-popover" data-placement="right">Right</a>
+                <a href="#popupBottom" role="button" class="btn btn-default" data-toggle="modal-popover" data-placement="bottom">Bottom</a>
+                <a href="#popupTop" role="button" class="btn btn-default" data-toggle="modal-popover" data-placement="top">Top</a>
+                <a href="#popupLeft" role="button" class="btn btn-default" data-toggle="modal-popover" data-placement="left">Left</a>
+                <a href="#popupRight" role="button" class="btn btn-default" data-toggle="modal-popover" data-placement="right">Right</a>
             </div>
 
             <pre class="prettyprint linenums">
 &lt;!-- Button to launch modal popover --&gt;
-&lt;a href="#popupBottom" role="button" class="btn" data-toggle="modal-popover" data-placement="bottom"&gt;Bottom&lt;/a&gt;
+&lt;a href="#popupBottom" role="button" class="btn btn-default" data-toggle="modal-popover" data-placement="bottom"&gt;Bottom&lt;/a&gt;
 
 &lt;!-- Define content --&gt;
 &lt;div id="popupBottom" class="popover"&gt;
@@ -62,7 +67,7 @@
     &lt;div class="popover-content"&gt;
         &lt;p&gt;Sed posuere consectetur est at lobortis. Aenean eu leo quam. 
             Pellentesque ornare sem lacinia quam venenatis vestibulum.
-            &lt;a href="#" class="btn helloWorld"&gt;Click me&lt;/a&gt;
+            &lt;a href="#" class="btn btn-default helloWorld"&gt;Click me&lt;/a&gt;
         &lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;</pre>
@@ -156,15 +161,15 @@
                     <td><p>If a remote url is provided, content will be loaded via jQuery's <code>load</code> method and injected into the <code>.popover-content</code>:</p>
 
                         <div class="bs-docs-example">
-                            <a href="#popupExternal" class="btn" data-toggle="modal-popover" data-remote="externalContent.html">Show External</a>
+                            <a href="#popupExternal" class="btn btn-default" data-toggle="modal-popover" data-remote="externalContent.html">Show External</a>
                         </div>
-                        <pre class="prettyprint linenums"><code>&lt;a href="#popupExternal" class="btn" data-toggle="modal-popover" data-remote="externalContent.html"&gt;Show External&lt;/a&gt;</code></pre>
+                        <pre class="prettyprint linenums"><code>&lt;a href="#popupExternal" class="btn btn-default" data-toggle="modal-popover" data-remote="externalContent.html"&gt;Show External&lt;/a&gt;</code></pre>
                         <p>If you're using the data api, you may alternatively use the <code>href</code> tag to specify the remote source. An example of this is shown below:</p>
 
                         <div class="bs-docs-example">
-                            <a href="externalContent.html" class="btn" data-target="#popupExternal2" data-toggle="modal-popover">Show External</a>
+                            <a href="externalContent.html" class="btn btn-default" data-target="#popupExternal2" data-toggle="modal-popover">Show External</a>
                         </div>
-                        <pre class="prettyprint linenums"><code>&lt;a href="externalContent.html" class="btn" data-target="#popupExternal" data-toggle="modal-popover"&gt;Show External&lt;/a&gt;</code></pre>
+                        <pre class="prettyprint linenums"><code>&lt;a href="externalContent.html" class="btn btn-default" data-target="#popupExternal" data-toggle="modal-popover"&gt;Show External&lt;/a&gt;</code></pre>
                     </td>
                 </tr>
                 <tr>
@@ -279,7 +284,7 @@ $('#myModal').on('hidden', function () {
             <form>
                 <div class="input-append">
                     <input type="text" class="input-medium" placeholder="my.email@sample.com">
-                    <a href="#" class="btn helloWorld">subscribe</a>
+                    <a href="#" class="btn btn-default helloWorld">subscribe</a>
                 </div>
             </form>
             </p>
@@ -294,7 +299,7 @@ $('#myModal').on('hidden', function () {
             <p>Sed posuere consectetur est at lobortis. Aenean
                 eu leo quam. Pellentesque ornare sem lacinia
                 quam venenatis vestibulum.
-                <a href="#" class="btn helloWorld">Click me</a>
+                <a href="#" class="btn btn-default helloWorld">Click me</a>
             </p>
         </div>
     </div>
@@ -307,7 +312,7 @@ $('#myModal').on('hidden', function () {
             <p>Sed posuere consectetur est at lobortis. Aenean
                 eu leo quam. Pellentesque ornare sem lacinia
                 quam venenatis vestibulum.
-                <a href="#" class="btn helloWorld">Click me</a>
+                <a href="#" class="btn btn-default helloWorld">Click me</a>
             </p>
         </div>
     </div>
@@ -320,7 +325,7 @@ $('#myModal').on('hidden', function () {
             <p>Sed posuere consectetur est at lobortis. Aenean
                 eu leo quam. Pellentesque ornare sem lacinia
                 quam venenatis vestibulum.
-                <a href="#" class="btn helloWorld">Click me</a>
+                <a href="#" class="btn btn-default helloWorld">Click me</a>
             </p>
         </div>
     </div>
@@ -333,7 +338,7 @@ $('#myModal').on('hidden', function () {
             <p>Sed posuere consectetur est at lobortis. Aenean
                 eu leo quam. Pellentesque ornare sem lacinia
                 quam venenatis vestibulum.
-                <a href="#" class="btn helloWorld">Click me</a>
+                <a href="#" class="btn btn-default helloWorld">Click me</a>
             </p>
         </div>
     </div>
