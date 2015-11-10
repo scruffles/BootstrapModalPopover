@@ -11,7 +11,7 @@
         this.$dialog = this.$element.find('.modal-dialog');
         this.options.remote && this.$element.find('.popover-content').load(this.options.remote);
         this.$parent = options.$parent; // todo make sure parent is specified
-    }
+    };
 
 
     /* NOTE: MODAL POPOVER EXTENDS BOOTSTRAP-MODAL.js
@@ -24,7 +24,8 @@
 
         getPosition:function () {
             var $element = this.$parent;
-            return $.extend({}, ($element.offset()), {
+            var pos = this.options.modalPosition === 'body' ? $element.offset() : $element.position();
+            return $.extend({}, (pos), {
                 width:$element[0].offsetWidth, height:$element[0].offsetHeight
             });
         },
@@ -117,16 +118,17 @@
             // todo need to replace 'parent' with 'target'
             options['$parent'] = (data && data.$parent) || option.$parent || $(options.target);
 
-            if (!data) $this.data('modal-popover', (data = new ModalPopover(this, options)))
+            if (!data) $this.data('modal-popover', (data = new ModalPopover(this, options)));
 
             if (typeof option == 'string') data[option]()
         })
-    }
+    };
 
-    $.fn.modalPopover.Constructor = ModalPopover
+    $.fn.modalPopover.Constructor = ModalPopover;
 
     $.fn.modalPopover.defaults = $.extend({}, $.fn.modal.defaults, {
         placement: 'right',
+        modalPosition: 'body',
         keyboard: true,
         backdrop: true
     });

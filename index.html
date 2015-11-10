@@ -79,10 +79,30 @@
             <a href="#multipleTarget" role="button" class="btn btn-default" data-toggle="modal-popover" data-placement="bottom">Button 1</a>
             <a href="#multipleTarget" role="button" class="btn btn-default" data-toggle="modal-popover" data-placement="bottom">Button 2</a>
 
+            <h3>The Target can be Absolute Positioned</h3>
+
+            <p>When the target is absolute positioned, place the modal directly after the trigger in the dom and set the modal-position option to 'relative':</p>
+
+            <div style="position: relative; height: 140px">
+                <a href="#near" role="button" class="btn btn-default" data-modal-position="relative" data-toggle="modal-popover" data-placement="bottom" style="position: absolute; left: 50px; top: 50px;">Absolute</a>
+                <div id="near" class="popover">
+                    <div class="arrow"></div>
+                    <h3 class="popover-title">Bottom</h3>
+
+                    <div class="popover-content">
+                        <p>Sed posuere consectetur est at lobortis. Aenean
+                            eu leo quam. Pellentesque ornare sem lacinia
+                            quam venenatis vestibulum.
+                            <a href="#" class="btn btn-default helloWorld">Click me</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
 
             <h2>Usage</h2>
 
-            <p>Please note the dialog currently needs to be imediatly inside the body of the document. (see <a href="https://github.com/scruffles/BootstrapModalPopover/issues/3">Issue #3</a>)</p>
+            <p>Please note the dialog currently needs to be immediately inside the body of the document. (see <a href="https://github.com/scruffles/BootstrapModalPopover/issues/3">Issue #3</a>)</p>
 
             <h3>Via data attributes</h3>
 
@@ -140,6 +160,12 @@
                     <td>string|function</td>
                     <td>'right'</td>
                     <td>how to position the popover - top | bottom | left | right</td>
+                </tr>
+                <tr>
+                    <td>modal-position</td>
+                    <td>string</td>
+                    <td>'body'</td>
+                    <td>Specifies where the modal is in the dom.  The value 'body' specifies the modal is directly within the body element.  The value 'relative' specifies the modal is right after the trigger in the dom.  The relative setting is useful for absolutely positioned targets.</td>
                 </tr>
                 <tr>
                     <td>backdrop</td>
