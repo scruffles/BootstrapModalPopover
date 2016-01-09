@@ -6,6 +6,7 @@
     var ModalPopover = function (element, options) {
         this.options = options;
         this.$body = $(document.body);
+        this.$navbar = $('.navbar.navbar-fixed-top');
         this.$element = $(element)
             .delegate('[data-dismiss="modal-popup"]', 'click.dismiss.modal-popup', $.proxy(this.hide, this));
         this.$dialog = this.$element.find('.modal-dialog');
@@ -90,6 +91,10 @@
                     this.$backdrop.one($.support.transition.end, callback) :
                     callback()
 
+                if (that.bodyIsOverflowing) {
+                    this.$navbar.css({ paddingRight: that.scrollbarWidth });
+                };
+
             } else if (!this.isShown && this.$backdrop) {
                 this.$backdrop.removeClass('in');
 
@@ -98,6 +103,9 @@
                     this.removeBackdrop();
 
                 this.$body.removeClass('modal-open');
+
+                this.$navbar.css({ paddingRight: 0 });
+                this.$body.css({paddingRight: 0});
 
             } else if (callback) {
                 callback()
